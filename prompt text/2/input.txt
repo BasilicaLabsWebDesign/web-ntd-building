@@ -1,3 +1,0 @@
-header and footer visible at all times
-
-footer will be contact details
