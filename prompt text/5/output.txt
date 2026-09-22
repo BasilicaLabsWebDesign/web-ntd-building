@@ -1,0 +1,14 @@
+A social thumbnail is added and released to main as v1.4. Shared links to the new site or the offer now carry a branded preview image, attached.
+
+**What it shows.** The business name in the site's display type, "Carpenter and builder · Greater London", the main services, and a gold "Free consultation · 07480 243 158" bar, with the N monogram beside them. It uses the site's own colours and fonts, and every word comes from the new site.
+
+**What else changed.**
+- **Both pages** now carry the preview tags, including the large-image card for X.
+- **The robots file** still blocks search engines, but now lets the link-preview bots of Facebook, WhatsApp, X, LinkedIn, Slack, Telegram and Discord fetch the pages. Without that, several apps refuse to build a preview.
+- **The thumbnail has a source file**, so `npm run social` renders it again after an edit.
+
+**Verified.** The image is 1200 by 630 pixels and 48 KB, well under the size WhatsApp accepts. The dry-run deploy and the skill's layout checker pass on both pages, and both pages' tags point at the image. A robots test confirms the preview bots get in and the search engines stay blocked. The sell checker passes the new wording.
+
+**One thing needs your input.** The image address is relative, because I can't see the site's live address from here. Some apps resolve a relative address, but WhatsApp, Instagram, Facebook and X expect a full one. Send me the live URL, either the workers.dev address or the domain, and I'll make it absolute in the next release.
+
+**Git.** One commit under Fid went to the working branch, then main was fast-forwarded. The prompt archive now holds version 5, with your message and this reply.

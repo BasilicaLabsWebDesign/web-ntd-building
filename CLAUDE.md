@@ -21,12 +21,13 @@ public/            everything served
   offer/           "The offer" tab
   404.html
   favicon.svg
-  assets/css|js
+  assets/css|js|img  img/og-image.png is the social thumbnail
   fonts/           self-hosted Oswald + Inter for the offer page
   _headers         security + caching headers
   robots.txt
 wrangler.jsonc     assets-only config, no Worker script
-package.json       wrangler + playwright-core devDependencies, dev/deploy/check scripts
+package.json       wrangler + playwright-core devDependencies, dev/deploy/check/social scripts
+social/           source + render script for the social thumbnail
 prompt text/       the records behind the version in service (see below)
 ```
 
@@ -114,8 +115,14 @@ returning visitors keep the old one.
   five words or fewer and a one-sentence subtitle. Problems cite only what was
   observed on their own site or its address, never a social post. Add pairs
   when a capture or the owner's notes supply observations of the page itself.
-- Every page is `noindex` and `robots.txt` disallows all until go-live. The
-  README lists what to delete at go-live.
+- Every page is `noindex`. `robots.txt` disallows everyone except the
+  link-preview bots it names, so shared links keep their thumbnail while
+  search engines stay out. The README lists what to delete at go-live.
+- The social thumbnail is rendered from `social/og-image.html` with
+  `npm run social` - never edited as a PNG. Its words come from the new site
+  and follow the sell vocabulary. Give a changed image a new file name (the
+  `/assets/` cache is immutable), and make `og:image` absolute on both pages
+  once the live host is known: until then it is a relative path.
 
 ## Prompt archive
 
@@ -140,3 +147,4 @@ archive exactly as it is.
 | v1.1 | The top bar and contact details never scroll away | The header with the phone button now stays fixed at the top while the page scrolls, and a slim footer with the phone number, WhatsApp, email and area stays fixed at the bottom. On phones it sits just above the Call now and WhatsApp bar, so a visitor can get in touch from anywhere on the page. |
 | v1.2 | The demo now makes the offer | The new site now sits in a three-tab demo under a dark bar, beside a frame of the business's current Wix site and an offer page. The offer compares the two sites and lays out the £500 site, the optional £50 changes and the terms, and the whole demo stays out of search engines. |
 | v1.3 | A shorter offer that gets to the point | The offer page is now a quick read, with the comparison against their current site cut to three short problem-and-fix cards and the prices and terms trimmed to titles and one-liners. The separate current-site tab is gone, and a link at the top of the offer opens their live site in a new tab instead. |
+| v1.4 | Shared links now arrive with a picture | Links to the demo now show a branded preview card with the business name, its trade and area, and the free-consultation number, in the site's own colours. Search engines are still kept out, but messaging and social apps may now fetch the pages to build the preview. |

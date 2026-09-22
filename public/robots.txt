@@ -1,2 +1,13 @@
+# Pitch demo: search engines stay out, but link-preview bots may fetch the
+# pages and the social thumbnail so a shared link shows its preview.
+User-agent: facebookexternalhit
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Slackbot-LinkExpanding
+User-agent: WhatsApp
+User-agent: TelegramBot
+User-agent: Discordbot
+Allow: /
+
 User-agent: *
 Disallow: /

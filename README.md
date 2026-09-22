@@ -17,8 +17,10 @@ public/
   _headers              security and caching headers
   assets/
     css/site.css        the new site's stylesheet, including its embedded fonts
+    img/og-image.png    social thumbnail (1200x630) for link previews
     js/enquiry.js       the enquiry-form handler (opens the visitor's email app)
   fonts/                Oswald and Inter, self-hosted for the offer page
+social/                source and render script for the social thumbnail
 wrangler.jsonc          assets-only Worker config, no Worker script
 package.json            wrangler and playwright-core as devDependencies
 package-lock.json
@@ -56,7 +58,22 @@ A dark "Demo" bar fixed to the top of both pages links them:
   policies that apply to it. Pairs about the page itself need a capture of
   their site, which needs `wixsite.com`, `wixstatic.com` and `parastorage.com`
   reachable, or notes from someone who has opened it.
-- Every page carries `noindex`, and `robots.txt` disallows all crawling.
+- Every page carries `noindex`. `robots.txt` keeps search engines out but lets
+  link-preview bots in, so a shared link still shows its thumbnail.
+
+## Social thumbnail
+
+Shared links to either page preview with `public/assets/img/og-image.png`: the
+business name, what and where, the free-consultation line and the phone
+number, in the new site's colours and fonts. Its source is
+`social/og-image.html`; after editing it, run `npm run social` to render the
+PNG again at exactly 1200x630.
+
+- **The image address is relative for now.** WhatsApp, Instagram, Facebook
+  and X want a full address, so set `og:image` on both pages to the live
+  domain as soon as it is known.
+- **A changed image needs a new file name.** Everything under `/assets/` is
+  cached for a year, and the social platforms cache previews by address too.
 
 ## Local development
 
@@ -114,5 +131,6 @@ When the new site goes live under the business's own domain:
 - Delete `public/offer/` and `public/fonts/`, and their entries in `_headers`.
 - Remove `<meta name="robots" content="noindex,nofollow">` from `index.html`
   and set `robots.txt` to allow crawling.
+- Point `og:image` at the thumbnail's full address on the business's domain.
 - The supplied page carried a placeholder Instagram link; add one to the
   contact footer once the handle is confirmed.

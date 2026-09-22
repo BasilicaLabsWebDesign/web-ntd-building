@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Social thumbnail source</title>
+<!-- Source of public/assets/img/og-image.png (1200x630). Re-render with: npm run social -->
+<link rel="stylesheet" href="../public/fonts/fonts.css">
+<style>
+  :root{--spruce:#17311F;--paper:#F4EFE2;--accent:#E3A72F}
+  *{box-sizing:border-box;margin:0}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{background:var(--spruce);color:var(--paper);font-family:"Inter",system-ui,sans-serif;
+    display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:56px;padding:0 84px}
+  .kicker{font-weight:600;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  h1{font-family:"Oswald",Impact,"Arial Narrow",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:104px;line-height:.93;letter-spacing:.005em;margin-top:22px;white-space:nowrap}
+  .bar{width:150px;height:14px;background:var(--accent);margin-top:30px}
+  .what{font-size:28px;margin-top:28px;opacity:.9}
+  .cta{display:inline-block;margin-top:34px;background:var(--accent);color:var(--spruce);
+    font-family:"Oswald",Impact,"Arial Narrow",sans-serif;font-weight:500;text-transform:uppercase;
+    font-size:32px;letter-spacing:.03em;line-height:1;padding:15px 26px}
+  .mark{display:block;width:210px;height:210px}
+</style>
+</head>
+<body>
+  <div>
+    <p class="kicker">Carpenter and builder · Greater London</p>
+    <h1>NTD Carpentry<br>&amp; Building</h1>
+    <div class="bar"></div>
+    <p class="what">First &amp; second fix · Kitchens · Flooring · Decking</p>
+    <p class="cta">Free consultation · 07480 243 158</p>
+  </div>
+  <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+    <rect width="64" height="64" fill="#F4EFE2"/>
+    <path d="M14 12h8l20 17V12h8v28h-8L22 23v17h-8z" fill="#17311F"/>
+    <rect x="14" y="46" width="36" height="6" fill="#E3A72F"/>
+  </svg>
+</body>
+</html>
