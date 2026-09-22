@@ -143,3 +143,13 @@ form small{font-size:14px;opacity:.8}
   .callbar .wa{color:var(--paper);border:2px solid var(--paper)}
   body{padding-bottom:78px}
 }
+
+/* pinned header and contact footer */
+html{scroll-padding-top:77px}
+.bar{position:sticky;top:0;z-index:20}
+.site{position:sticky;bottom:0;z-index:20;padding:18px 0 calc(18px + env(safe-area-inset-bottom,0px))}
+@media (max-width:760px){
+  /* sits on top of the call bar: 8px + 47px buttons + 8px = 63px, plus the safe area the bar adds */
+  .site{bottom:calc(63px + env(safe-area-inset-bottom,0px));padding-bottom:18px}
+  body{padding-bottom:calc(63px + env(safe-area-inset-bottom,0px))}
+}

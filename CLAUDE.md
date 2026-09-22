@@ -102,3 +102,4 @@ archive exactly as it is.
 | Version | Title | Description |
 | --- | --- | --- |
 | v1.0 | The carpentry site gets a home of its own | The NTD Carpentry & Building page now lives in its own repository, ready for Cloudflare to publish on every release. It looks and works exactly as the single file did, and anyone who mistypes an address gets a matching page that points them back home. |
+| v1.1 | The top bar and contact details never scroll away | The header with the phone button now stays fixed at the top while the page scrolls, and a slim footer with the phone number, WhatsApp, email and area stays fixed at the bottom. On phones it sits just above the Call now and WhatsApp bar, so a visitor can get in touch from anywhere on the page. |

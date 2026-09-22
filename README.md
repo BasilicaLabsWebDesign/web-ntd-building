@@ -23,9 +23,10 @@ CLAUDE.md               working policy and the release ledger
 prompt text/            the records behind the version currently in service
 ```
 
-The page's content, design and behaviour are as supplied. The stylesheet and the
-form script were moved out of the HTML into their own files without changes, in
-the same positions and order. The structured-data block
+The page's content, design and behaviour are as supplied, with one deliberate
+change since: the top bar and a contact-details footer stay pinned on screen
+while the page scrolls. The stylesheet and the form script were moved out of
+the HTML into their own files, in the same positions and order. The structured-data block
 (`application/ld+json`) stays inline because search engines only read it from
 the page itself.
 
@@ -78,4 +79,5 @@ Two notes are carried in the supplied page itself:
 
 - `<meta name="robots" content="noindex,nofollow">` marks the page as a pitch
   demo. Remove it when the site goes live under the business's own domain.
-- The footer's Instagram link is a placeholder until the handle is confirmed.
+- The supplied page carried a placeholder Instagram link; add one to the
+  contact footer once the handle is confirmed.

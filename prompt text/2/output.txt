@@ -1,0 +1,9 @@
+The top bar and a contact-details footer now stay on screen while the page scrolls, released to main as v1.1.
+
+**What changed.** The header bar sticks to the top of the window, and the section links now land just below it rather than underneath it. The footer is a slim spruce bar with the phone number, WhatsApp, email and area, pinned to the bottom of the window. The brand name and copyright line came out of the footer, since the bar above already shows the name. On phones the contact footer sits directly on top of the existing Call now and WhatsApp bar, so both stay in reach. The 404 page carries the same header and footer. The stylesheet link now has a version stamp so returning visitors get the new styles instead of the cached ones.
+
+**Verified.** The wrangler dry-run deploy passes, and the render check reports every local reference resolving on disk. I inspected screenshots at desktop and true phone width: the top of the page, the middle, the end, and the 404 page. The bar and footer stay put in every case, the footer wraps to two lines on a phone, and nothing hides behind either bar. Photos still show as placeholder panels because Wix is unreachable from this sandbox. Screenshots are attached.
+
+**Git.** One commit under Fid, pushed to the working branch and fast-forwarded onto main. The prompt archive now holds version 2 with both of your messages and this reply, and version 1 remains in the v1.0 commit.
+
+**Two judgement calls to know about:** the copyright line is gone from the footer, and the phone call bar stays alongside the new footer. Either can be reversed in a follow-up release.
