@@ -10,14 +10,14 @@ lives in `public/` and there is no build step - the files in that directory are
 the site. The repo is connected to Cloudflare Workers Builds, so **every push to
 `main` deploys to production**.
 
-It is currently a three-tab pitch demo built with the site-pitch skill: the new
-site at `/`, their current Wix site framed at `/original/`, and the offer at
-`/offer/`.
+It is currently a two-tab pitch demo built with the site-pitch skill: the new
+site at `/` and the offer at `/offer/`. At the owner's request there is no
+`/original/` tab; the offer's top band links to their live Wix site in a new
+tab.
 
 ```
 public/            everything served
   index.html       the new site (demo bar on top)
-  original/        "Current site" tab: frame of the live Wix site
   offer/           "The offer" tab
   404.html
   favicon.svg
@@ -43,17 +43,14 @@ npm run dev          # wrangler dev
 2. Serve `public/`, render every tab with headless Chromium, and inspect the
    screenshots: styles applied, fonts loaded, layout intact.
 3. Run the site-pitch layout verifier (320-1920px, real fonts, no requests to
-   the live site). Run it from the repo so it finds playwright-core, give it
-   an absolute `--dir` (with a relative one its server answers 403 to every
-   page), and run two passes, because `/original/` frames the live site by
-   design:
+   the live site). Run it from the repo so it finds playwright-core, and give
+   it an absolute `--dir` (with a relative one its server answers 403 to every
+   page):
 
    ```bash
-   V=<site-pitch skill>/scripts/verify-layout.js
-   T=$(mktemp -d) && cp -r public/. "$T" && rm -rf "$T/original"
-   NODE_PATH=node_modules node $V --dir "$T" --routes "/,/offer/" \
+   NODE_PATH=node_modules node <site-pitch skill>/scripts/verify-layout.js \
+     --dir "$PWD/public" --routes "/,/offer/" \
      --fonts "Oswald,Inter" --original-host ntdbuilding.wixsite.com
-   NODE_PATH=node_modules node $V --dir "$PWD/public" --routes "/original/"
    ```
 
 Never leave pushed work unverified or half-finished. Work in small, complete
@@ -105,17 +102,18 @@ returning visitors keep the old one.
 ## The pitch demo
 
 - The demo bar is pitch chrome, not the client's design. It sits between the
-  `site-pitch demo bar` comments on every tab; on the new site the style block
+  `site-pitch demo bar` comments on both tabs; on the new site the style block
   inside those comments keeps the sticky header and anchor jumps below it.
-- `/original/` is the site-pitch frame fallback: the capture could not reach
-  Wix from the build environment. Rerun the capture when Wix is reachable and
-  replace the frame with the clean copy.
-- `/offer/` follows the site-pitch offer sheet for every number and promise,
-  harvests the new site's colours and fonts, and uses the sell vocabulary for
-  every word a prospect reads - run the-sell's checker over its visible text.
-- Tale-of-the-tape rows cite only what was observed on their own site or its
-  address, never a social post. Add rows when a capture or the owner's notes
-  supply observations of the page itself.
+- There is no `/original/` tab: the owner dropped it. Their live Wix site opens
+  in a new tab from a link in the offer's top band instead.
+- `/offer/` is built from the site-pitch offer template and sheet: every number
+  and promise from the sheet, the new site's colours and fonts, and short copy -
+  titles and one-liners. Every word a prospect reads uses the sell vocabulary;
+  run the-sell's checker over its visible text.
+- The tale of the tape is pairs: problem on top, fix underneath, each a title of
+  five words or fewer and a one-sentence subtitle. Problems cite only what was
+  observed on their own site or its address, never a social post. Add pairs
+  when a capture or the owner's notes supply observations of the page itself.
 - Every page is `noindex` and `robots.txt` disallows all until go-live. The
   README lists what to delete at go-live.
 
@@ -141,3 +139,4 @@ archive exactly as it is.
 | v1.0 | The carpentry site gets a home of its own | The NTD Carpentry & Building page now lives in its own repository, ready for Cloudflare to publish on every release. It looks and works exactly as the single file did, and anyone who mistypes an address gets a matching page that points them back home. |
 | v1.1 | The top bar and contact details never scroll away | The header with the phone button now stays fixed at the top while the page scrolls, and a slim footer with the phone number, WhatsApp, email and area stays fixed at the bottom. On phones it sits just above the Call now and WhatsApp bar, so a visitor can get in touch from anywhere on the page. |
 | v1.2 | The demo now makes the offer | The new site now sits in a three-tab demo under a dark bar, beside a frame of the business's current Wix site and an offer page. The offer compares the two sites and lays out the £500 site, the optional £50 changes and the terms, and the whole demo stays out of search engines. |
+| v1.3 | A shorter offer that gets to the point | The offer page is now a quick read, with the comparison against their current site cut to three short problem-and-fix cards and the prices and terms trimmed to titles and one-liners. The separate current-site tab is gone, and a link at the top of the offer opens their live site in a new tab instead. |

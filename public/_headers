@@ -19,8 +19,5 @@
 /
   Cache-Control: public, max-age=0, must-revalidate
 
-/original/
-  Cache-Control: public, max-age=0, must-revalidate
-
 /offer/
   Cache-Control: public, max-age=0, must-revalidate

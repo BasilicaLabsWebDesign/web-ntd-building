@@ -1,7 +1,7 @@
 # NTD Carpentry & Building
 
 One-page site for NTD Carpentry & Building, a carpenter and builder covering
-Greater London, currently wrapped in a three-tab pitch demo. It is served as
+Greater London, currently wrapped in a two-tab pitch demo. It is served as
 Cloudflare Workers static assets: no framework, no build step. The files in
 `public/` are the site.
 
@@ -10,7 +10,6 @@ Cloudflare Workers static assets: no framework, no build step. The files in
 ```
 public/
   index.html            the new site, as supplied, with the demo bar on top
-  original/index.html   "Current site" tab: their live Wix site, framed
   offer/index.html      "The offer" tab: tale of the tape, prices and terms
   404.html              themed not-found page, served for any unknown path
   favicon.svg           monogram in the site's colours
@@ -36,29 +35,27 @@ engines only read it from the page itself.
 
 ## The pitch demo
 
-A dark "Demo" bar fixed to the top of every tab links the three pages:
+A dark "Demo" bar fixed to the top of both pages links them:
 
 | Route | Tab | What it shows |
 | --- | --- | --- |
 | `/` | New site | The one-page site built for the business |
-| `/original/` | Current site | Their live site at ntdbuilding.wixsite.com/mysite, in a frame |
 | `/offer/` | The offer | Tale of the tape, the £500 site and £50 changes, terms, ownership |
 
 - **The demo bar** sits between two `site-pitch demo bar` comments in each page.
   On the new site it comes with a small style block that keeps the site's own
   sticky header and anchor jumps below it.
-- **The Current site tab is a frame, not a copy.** The capture could not reach
-  Wix from the build environment, so the tab shows the live site in a frame and
-  says so in a strip across the top. If Wix refuses to be framed, the strip's
-  link opens it in its own tab. With `wixsite.com`, `wixstatic.com` and
-  `parastorage.com` reachable, rerunning the capture gives a clean local copy.
-- **The offer** carries the site-pitch offer sheet's numbers and promises in the
-  new site's colours and fonts, worded with the sell vocabulary, so the market
-  range reads £1.5k–£8k. Replies go to the message that brought them to the
-  demo. The referral band is left out.
-- **The tale of the tape has three rows**: the Wix address, and two Wix
-  policies that apply to it. Rows about the page itself need a working capture,
-  or notes from someone who has opened it.
+- **Their current site** opens in a new tab from a link at the top of the
+  offer page. The repo holds no copy of it.
+- **The offer** follows the site-pitch offer template: short titles and
+  one-line subtitles, the sheet's numbers and promises, and the new site's
+  colours and fonts. It is worded with the sell vocabulary, so the market range
+  reads £1.5k–£8k. Replies go to the message that brought them to the demo.
+  The referral band is left out.
+- **The tale of the tape has three pairs**: the Wix address, and two Wix
+  policies that apply to it. Pairs about the page itself need a capture of
+  their site, which needs `wixsite.com`, `wixstatic.com` and `parastorage.com`
+  reachable, or notes from someone who has opened it.
 - Every page carries `noindex`, and `robots.txt` disallows all crawling.
 
 ## Local development
@@ -101,7 +98,8 @@ galleries). They are referenced by absolute URL exactly as in the supplied page
 and are not vendored here. If the Wix site is ever taken down, copy them into
 `public/assets/img/` and point the `src` attributes there.
 
-The Current site tab frames the live site at `ntdbuilding.wixsite.com`.
+The offer page links to the live site at `ntdbuilding.wixsite.com`, which
+opens in a new tab.
 
 The new site's fonts (Oswald 500 and 700, Inter 400 and 600) are embedded in
 its stylesheet as data URIs; the offer page loads the same families from
@@ -113,8 +111,7 @@ When the new site goes live under the business's own domain:
 
 - Delete the demo bar from `index.html`: everything from the
   `site-pitch demo bar` comment to the closing `/site-pitch demo bar` comment.
-- Delete `public/original/`, `public/offer/` and `public/fonts/`, and their
-  entries in `_headers`.
+- Delete `public/offer/` and `public/fonts/`, and their entries in `_headers`.
 - Remove `<meta name="robots" content="noindex,nofollow">` from `index.html`
   and set `robots.txt` to allow crawling.
 - The supplied page carried a placeholder Instagram link; add one to the

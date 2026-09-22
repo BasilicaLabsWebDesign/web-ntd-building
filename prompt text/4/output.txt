@@ -1,0 +1,20 @@
+The offer is rebuilt in the updated site-pitch style and released to main as v1.3. The Current site page is gone, and a link at the top of the offer now opens their live Wix site in a new tab.
+
+**What changed in the skill.** The offer is the only part that changed. The tale of the tape is now pairs, with the problem on top and the fix underneath, each a short title and a one-line subtitle. The header is one sentence, the pricing line asks "How is it this cheap?", and the terms are shorter. The demo bar, the frame template and the other references are the same as before.
+
+**What changed on the demo.**
+- **The tale of the tape** is three problem-and-fix cards instead of a table, and every title is five words or fewer.
+- **The rest of the offer** uses the new template's wording, and the sell vocabulary still passes its checker.
+- **The Current site page and its tab** are removed, so the demo bar shows New site and The offer.
+- **The "See your current site" link** sits under the header sentence on the offer. I read "the pitch page" as the offer page, so say if you meant the demo bar.
+
+Visible words on the offer: 318 before, 266 now.
+
+**Verified.** The dry-run deploy passes. The skill's layout checker passes both tabs at every width from small phones to wide desktops, with the fonts loaded and no requests to the live site. A test click on the new link opened their site's address in a new tab and left the offer where it was. Screenshots are attached.
+
+**Still open.**
+- **The tape has three pairs, short of the skill's four to seven.** More need a capture of their site, or your notes on what it shows.
+- **The market range stays in the sell's short form, £1.5k–£8k.** The updated offer sheet still asks for £1,500–£8,000, so the two skills still disagree.
+- **The skill's layout checker still rejects a relative folder**, so CLAUDE.md keeps the absolute-path command.
+
+**Git.** One commit under Fid went to the working branch, then main was fast-forwarded. The prompt archive now holds version 4, with both of your messages and this reply. Its model file names the model you switched to.
