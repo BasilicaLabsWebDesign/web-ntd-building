@@ -1,0 +1,11 @@
+The NTD Carpentry & Building page is now a Cloudflare Workers static-assets repository, released to main as v1.0.
+
+**What the repo holds.** The supplied page is served unchanged from the public folder. Its stylesheet, with the four embedded fonts, and the enquiry-form script moved into their own files, and the page rebuilt from those files matches the original byte for byte. The structured-data block stays inline because search engines only read it from the page itself. Alongside the page there is a matching not-found page, an N monogram favicon in the site's spruce and gold, a robots file, security and caching headers, the Cloudflare config, and the package manifest with a committed lockfile. The README explains the layout and deployment, and CLAUDE.md carries the working policy and the release ledger.
+
+**Verified.** The wrangler dry-run deploy passes on the installed wrangler release. The render check reports every local reference resolving on disk. I inspected the desktop and mobile screenshots of both pages: the Oswald and Inter fonts load, the layout holds at both widths, and the mobile call bar sits at the bottom as designed. The photographs show as their placeholder panels in the screenshots because this sandbox cannot reach Wix, where the page loads them from. On the live site they load as before. The screenshots are attached.
+
+**Git.** Everything is in one commit under Fid, pushed to the working branch and fast-forwarded onto main. The prompt archive starts at version 1 with your prompt, the supplied HTML under its original name, the model attribution, and this reply.
+
+**Two notes carried over from the page itself** are recorded in the README: the noindex meta tag that marks it as a pitch demo, and the footer's placeholder Instagram link. Both are yours to change at go-live.
+
+If the repository is not yet connected in Cloudflare, connect it under Workers & Pages, Create, Import a repository. A failed build from before this release is expected and clears on the next push to main.
