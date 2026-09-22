@@ -28,9 +28,10 @@ CLAUDE.md               working policy and the release ledger
 prompt text/            the records behind the version currently in service
 ```
 
-The new site's content, design and behaviour are as supplied, with one
-deliberate change since: the top bar and a contact-details footer stay pinned
-on screen while the page scrolls. The stylesheet and the form script were moved
+The new site's content, design and behaviour are as supplied, with two
+deliberate changes since: the top bar stays pinned on screen, and a single
+pinned bar of three buttons, Call, WhatsApp and Email, replaces the footer
+and the phone call bar. The stylesheet and the form script were moved
 out of the HTML into their own files, in the same positions and order. The
 structured-data block (`application/ld+json`) stays inline because search
 engines only read it from the page itself.
@@ -69,9 +70,9 @@ number, in the new site's colours and fonts. Its source is
 `social/og-image.html`; after editing it, run `npm run social` to render the
 PNG again at exactly 1200x630.
 
-- **The image address is relative for now.** WhatsApp, Instagram, Facebook
-  and X want a full address, so set `og:image` on both pages to the live
-  domain as soon as it is known.
+- **The image address is absolute**, on the demo's live domain, because
+  WhatsApp, Instagram, Facebook and X need a full address. Move `og:image`
+  and `og:url` on both pages with the site when it changes domain.
 - **A changed image needs a new file name.** Everything under `/assets/` is
   cached for a year, and the social platforms cache previews by address too.
 
@@ -97,7 +98,7 @@ styles apply, the fonts load and nothing overflows from 320px up.
 ## Deployment
 
 The repository is connected to Cloudflare Workers Builds: every push to `main`
-deploys to production. `CLAUDE.md` carries the release policy and the ledger.
+deploys to production, live at https://ntd-building.basilicalabs.ai. `CLAUDE.md` carries the release policy and the ledger.
 
 To connect it the first time: Cloudflare dashboard → Workers & Pages → Create →
 Import a repository → pick this repo. No build command is needed;
@@ -131,6 +132,7 @@ When the new site goes live under the business's own domain:
 - Delete `public/offer/` and `public/fonts/`, and their entries in `_headers`.
 - Remove `<meta name="robots" content="noindex,nofollow">` from `index.html`
   and set `robots.txt` to allow crawling.
-- Point `og:image` at the thumbnail's full address on the business's domain.
-- The supplied page carried a placeholder Instagram link; add one to the
-  contact footer once the handle is confirmed.
+- Point `og:image` and `og:url` at the business's domain.
+- The supplied page carried a placeholder Instagram link, dropped when the
+  contact bar became three buttons. Find it a place once the handle is
+  confirmed.

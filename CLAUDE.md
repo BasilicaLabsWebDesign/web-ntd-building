@@ -8,7 +8,7 @@ The one-page site for NTD Carpentry & Building, a carpenter and builder covering
 Greater London, served as Cloudflare Workers static assets. Everything served
 lives in `public/` and there is no build step - the files in that directory are
 the site. The repo is connected to Cloudflare Workers Builds, so **every push to
-`main` deploys to production**.
+`main` deploys to production**, live at https://ntd-building.basilicalabs.ai.
 
 It is currently a two-tab pitch demo built with the site-pitch skill: the new
 site at `/` and the offer at `/offer/`. At the owner's request there is no
@@ -96,6 +96,11 @@ stays inline in `index.html` because search engines only read it there. The
 photographs load from the business's Wix site by absolute URL and are not
 vendored.
 
+Deliberate changes since the supplied page: the top bar is sticky, and one
+pinned bar of three buttons - Call, WhatsApp, Email - replaces the supplied
+footer and mobile call bar. Its rules are the block at the end of `site.css`;
+the supplied `.callbar` rules above it are left in place, unused.
+
 `/assets/*` is served with a one-year immutable cache, so a changed CSS or JS
 file needs a new filename or a version query string on its link tag, or
 returning visitors keep the old one.
@@ -121,8 +126,8 @@ returning visitors keep the old one.
 - The social thumbnail is rendered from `social/og-image.html` with
   `npm run social` - never edited as a PNG. Its words come from the new site
   and follow the sell vocabulary. Give a changed image a new file name (the
-  `/assets/` cache is immutable), and make `og:image` absolute on both pages
-  once the live host is known: until then it is a relative path.
+  `/assets/` cache is immutable). `og:image` and `og:url` are absolute on the
+  live host; move them with the site when it changes domain.
 
 ## Prompt archive
 
@@ -148,3 +153,4 @@ archive exactly as it is.
 | v1.2 | The demo now makes the offer | The new site now sits in a three-tab demo under a dark bar, beside a frame of the business's current Wix site and an offer page. The offer compares the two sites and lays out the £500 site, the optional £50 changes and the terms, and the whole demo stays out of search engines. |
 | v1.3 | A shorter offer that gets to the point | The offer page is now a quick read, with the comparison against their current site cut to three short problem-and-fix cards and the prices and terms trimmed to titles and one-liners. The separate current-site tab is gone, and a link at the top of the offer opens their live site in a new tab instead. |
 | v1.4 | Shared links now arrive with a picture | Links to the demo now show a branded preview card with the business name, its trade and area, and the free-consultation number, in the site's own colours. Search engines are still kept out, but messaging and social apps may now fetch the pages to build the preview. |
+| v1.5 | Three buttons at the foot of every page | The contact details and the separate phone bar are now one slim bar pinned to the bottom of the screen, with just three buttons: call, WhatsApp and email. It takes far less room on a phone, and the preview picture on shared links now carries the site's full address, which WhatsApp, Instagram, Facebook and X need. |
