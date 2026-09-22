@@ -30,8 +30,8 @@ prompt text/            the records behind the version currently in service
 
 The new site's content, design and behaviour are as supplied, with two
 deliberate changes since: the top bar stays pinned on screen, and a single
-pinned bar of three buttons, Call, WhatsApp and Email, replaces the footer
-and the phone call bar. The stylesheet and the form script were moved
+slim pinned bar of three icon buttons, call, WhatsApp and email, replaces
+the footer and the phone call bar. The stylesheet and the form script were moved
 out of the HTML into their own files, in the same positions and order. The
 structured-data block (`application/ld+json`) stays inline because search
 engines only read it from the page itself.

@@ -1,0 +1,12 @@
+The contact bar now shows icons instead of words and is slimmer, released to main as v1.6.
+
+**What changed.**
+- **Icons replace the labels.** A phone handset calls, the WhatsApp mark opens a chat, and an envelope opens an email. Each button still carries its name for screen readers.
+- **The bar is shorter**, the usual height for a phone's bottom bar. The buttons now sit edge to edge with thin dividers, and the call button stays gold.
+- **The 404 page** has the same bar, and the stylesheet has a new version stamp so phones drop the cached one.
+
+Bar height: 63 pixels before, 48 now.
+
+**Verified.** The dry-run deploy passes. The skill's layout checker passes the new site, the offer and the 404 page at every width from small phones to wide desktops. Screenshots at phone and desktop size show the bar pinned at the bottom, with each button still a comfortable size to tap. They are attached.
+
+**Git.** One commit under Fid went to the working branch, then main was fast-forwarded. The prompt archive now holds version 7, with your message and this reply.

@@ -144,16 +144,19 @@ form small{font-size:14px;opacity:.8}
   body{padding-bottom:78px}
 }
 
-/* pinned header, and one contact bar of three buttons pinned to the foot
+/* pinned header, and one slim contact bar of three icon buttons pinned to the foot
    (it replaces the supplied footer and mobile call bar; the .callbar rules above are unused) */
 html{scroll-padding-top:77px}
 .bar{position:sticky;top:0;z-index:20}
-.site{position:sticky;bottom:0;z-index:20;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px))}
-.site .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-items:stretch;width:auto;max-width:640px}
-.site a{display:flex;justify-content:center;align-items:center;padding:13px 6px;border:2px solid var(--paper);color:var(--paper);font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(15px,4.5vw,17px);letter-spacing:.03em;line-height:1;text-decoration:none}
+.site{position:sticky;bottom:0;z-index:20;padding:0 0 env(safe-area-inset-bottom,0px)}
+.site .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-items:stretch;width:auto;max-width:480px}
+.site a{display:flex;justify-content:center;align-items:center;height:48px;color:var(--paper);text-decoration:none}
+.site a+a{border-left:1px solid rgba(244,239,226,.2)}
+.site a svg{display:block;width:26px;height:26px}
 .site a:hover{text-decoration:none;background:rgba(244,239,226,.12)}
-.site a.call{background:var(--accent);border-color:var(--accent);color:var(--spruce)}
-.site a.call:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+.site a.call{background:var(--accent);color:var(--spruce)}
+.site a.call:hover{background:var(--accent-dark)}
+@media (min-width:481px){.site .wrap{border-right:1px solid rgba(244,239,226,.2)}}
 @media (max-width:760px){body{padding-bottom:0}}
 /* short pages (the 404) keep the bar at the foot of the screen */
 body.notfound{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
