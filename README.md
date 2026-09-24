@@ -12,12 +12,13 @@ public/
   index.html            the new site, as supplied, with the demo bar on top
   offer/index.html      "The offer" tab: tale of the tape, prices and terms
   404.html              themed not-found page, served for any unknown path
-  favicon.svg           monogram in the site's colours
+  favicon.svg           the logo's house, in its slate and black
   robots.txt            disallows all crawling while this is a pitch demo
   _headers              security and caching headers
   assets/
     css/site.css        the new site's stylesheet, including its embedded fonts
-    img/og-image.png    social thumbnail (1200x630) for link previews
+    img/logo.png        the business's logo, black line art on transparency
+    img/og-image-2.png  social thumbnail (1200x630) for link previews
     js/enquiry.js       the enquiry-form handler (opens the visitor's email app)
   fonts/                Oswald and Inter, self-hosted for the offer page
 social/                source and render script for the social thumbnail
@@ -28,10 +29,11 @@ CLAUDE.md               working policy and the release ledger
 prompt text/            the records behind the version currently in service
 ```
 
-The new site's content, design and behaviour are as supplied, with two
-deliberate changes since: the top bar stays pinned on screen, and a single
-slim pinned bar of three icon buttons, call, WhatsApp and email, replaces
-the footer and the phone call bar. The stylesheet and the form script were moved
+The new site's content and behaviour are as supplied, with deliberate
+changes since. The top bar stays pinned on screen. A slim pinned bar of three
+icon buttons, call, WhatsApp and email, replaces the footer and the phone call
+bar. The colours follow the business's logo, slate and black, and the logo
+replaces the text name in the top bar. The stylesheet and the form script were moved
 out of the HTML into their own files, in the same positions and order. The
 structured-data block (`application/ld+json`) stays inline because search
 engines only read it from the page itself.
@@ -64,9 +66,9 @@ A dark "Demo" bar fixed to the top of both pages links them:
 
 ## Social thumbnail
 
-Shared links to either page preview with `public/assets/img/og-image.png`: the
-business name, what and where, the free-consultation line and the phone
-number, in the new site's colours and fonts. Its source is
+Shared links to either page preview with `public/assets/img/og-image-2.png`:
+the business's logo on its own slate, what and where, and the
+free-consultation line with the phone number. Its source is
 `social/og-image.html`; after editing it, run `npm run social` to render the
 PNG again at exactly 1200x630.
 
@@ -122,6 +124,10 @@ opens in a new tab.
 The new site's fonts (Oswald 500 and 700, Inter 400 and 600) are embedded in
 its stylesheet as data URIs; the offer page loads the same families from
 `public/fonts/`. No other third-party resources are loaded.
+
+The logo was lifted from a screenshot of the business's profile picture that
+the owner supplied. If the business has the original artwork, swapping it in
+will sharpen the logo and the thumbnail.
 
 ## Before go-live
 

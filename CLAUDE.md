@@ -21,7 +21,7 @@ public/            everything served
   offer/           "The offer" tab
   404.html
   favicon.svg
-  assets/css|js|img  img/og-image.png is the social thumbnail
+  assets/css|js|img  img/logo.png is the logo, img/og-image-2.png the social thumbnail
   fonts/           self-hosted Oswald + Inter for the offer page
   _headers         security + caching headers
   robots.txt
@@ -99,7 +99,11 @@ vendored.
 Deliberate changes since the supplied page: the top bar is sticky, and one
 slim pinned bar of three icon buttons - call, WhatsApp, email, no visible
 text, each with an aria-label - replaces the supplied footer and mobile call
-bar. Its rules are the block at the end of `site.css`;
+bar. The colours follow the logo: slate #476774 and black #121517, set in the
+:root tokens, with a short override block at the end of `site.css` for the
+places the supplied design used its old accent for text or marks. The logo
+(`assets/img/logo.png`, lifted from the owner's screenshot) replaces the text
+name in the top bar. Its rules are the block at the end of `site.css`;
 the supplied `.callbar` rules above it are left in place, unused.
 
 `/assets/*` is served with a one-year immutable cache, so a changed CSS or JS
@@ -127,7 +131,8 @@ returning visitors keep the old one.
 - The social thumbnail is rendered from `social/og-image.html` with
   `npm run social` - never edited as a PNG. Its words come from the new site
   and follow the sell vocabulary. Give a changed image a new file name (the
-  `/assets/` cache is immutable). `og:image` and `og:url` are absolute on the
+  `/assets/` cache is immutable): bump `OUT` in `social/render.js` and the
+  `og:image` tags together. `og:image` and `og:url` are absolute on the
   live host; move them with the site when it changes domain.
 
 ## Prompt archive
@@ -156,3 +161,4 @@ archive exactly as it is.
 | v1.4 | Shared links now arrive with a picture | Links to the demo now show a branded preview card with the business name, its trade and area, and the free-consultation number, in the site's own colours. Search engines are still kept out, but messaging and social apps may now fetch the pages to build the preview. |
 | v1.5 | Three buttons at the foot of every page | The contact details and the separate phone bar are now one slim bar pinned to the bottom of the screen, with just three buttons: call, WhatsApp and email. It takes far less room on a phone, and the preview picture on shared links now carries the site's full address, which WhatsApp, Instagram, Facebook and X need. |
 | v1.6 | A slimmer contact bar with icons | The three contact buttons at the foot of the screen now show a phone, the WhatsApp mark and an envelope instead of words, in a slimmer bar that leaves more of the page in view. Tapping each one still calls, opens WhatsApp or starts an email. |
+| v1.7 | The site now wears the business's own colours | The site takes its colours from the business's logo, slate blue and black, and the logo itself now sits in the top bar in place of the plain name. The offer, the share thumbnail and the browser-tab icon follow the same look, so every part of the demo matches their brand. |

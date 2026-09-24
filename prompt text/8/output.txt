@@ -1,0 +1,15 @@
+The site now uses the logo's colours and shows the logo itself, released to main as v1.7.
+
+**What changed.**
+- **The colours come from the logo.** Its slate blue now fills the bands, tags, header rule and contact bar. Its black carries the headings, text and buttons. The cream backgrounds became cool white and pale slate to sit with the blue.
+- **The logo is in the top bar** in place of the text name, on the new site and the 404 page. I lifted it from your screenshot onto a transparent background, so it keeps its exact lines.
+- **The offer page** uses the same colours, so both tabs match.
+- **The share thumbnail** is now the logo on its own slate, like the profile picture, with the free-consultation line underneath. It has a new file name, so apps don't reuse the old one.
+- **The browser-tab icon** is the house from the logo, in slate and black.
+- **The demo bar keeps its gold**, because it marks the pitch and is not part of their design.
+
+**Verified.** The dry-run deploy passes. The skill's layout checker passes the new site, the offer and the 404 page at every width from small phones to wide desktops. Every text colour passes the WCAG contrast standard, and the logo keeps its own black on slate. Screenshots are attached.
+
+**One thing would make it sharper.** The logo came from a screenshot, so it is only as crisp as that image. If the business has the original logo file, send it and I'll swap it in.
+
+**Git.** One commit under Fid went to the working branch, then main was fast-forwarded. The prompt archive now holds version 8, with your message, the logo image and this reply.
